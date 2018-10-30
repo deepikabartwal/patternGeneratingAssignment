@@ -1,13 +1,26 @@
+const repeatCharacter = function(length,character){
+  let line = "";
+  for(let lengthIndex = 0; lengthIndex<length; lengthIndex++){
+    line = line + character;
+  }
+  return line;
+}
+
+const lineGenerator = function(length,leftChar,midChar,rightChar){
+  let rightBorderWidth = 1;
+  let leftBorderWidth = 1;
+  let midWidth = length-2;
+  let left = repeatCharacter(leftBorderWidth,leftChar);
+  let right = repeatCharacter(rightBorderWidth,rightChar);
+  let mid = repeatCharacter(midWidth,midChar)
+  return left+mid+right;
+}
+
 const filledRectangle = function(length,breadth){
   let filledRow = "";
   let delim="";
-  let line = "";
-  for(lengthIndex=0;lengthIndex<length;lengthIndex++){
-    line=line+"*";
-  }
-
   for(breadthIndex=0;breadthIndex<breadth;breadthIndex++){
-    filledRow=filledRow+delim+line;
+    filledRow=filledRow+delim+repeatCharacter(length,"*");
     delim="\n";
   }
 
