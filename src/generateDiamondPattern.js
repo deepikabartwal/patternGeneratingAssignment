@@ -64,18 +64,26 @@ const angledHollowDiamond = function(lineLength) {
   return pattern;
 }
 
-const main = function(){
-  let shape = process.argv[2];
-  let lineLength = +process.argv[3];
-  lineLength = lineLength % 2 == 0 ? lineLength - 1 : lineLength;
-
-  if (shape == "filled") {
-    console.log(filledDiamond(lineLength));
-  } else if (shape == "hollow") {
-    console.log(hollowDiamond(lineLength));
-  } else {
-    console.log(angledHollowDiamond(lineLength));
-  }
+const justifyWidth = function(width){
+  let widthToUse = Math.ceil(width/2)*2 - 1;
+  return widthToUse;
 }
 
+const generateDiamond = function(type,width){
+  if(type == "filled"){
+    return filledDiamond(justifyWidth(width));
+  }
+  if(type  == "hollow") {
+    return hollowDiamond(justifyWidth(width));
+  }
+  return angledHollowDiamond(justifyWidth(width));
+}
+
+exports.generateDiamond = generateDiamond;
+
+const main = function(){
+  let type = process.argv[2];
+  let width = +process.argv[3];
+  console.log(generateDiamond(type,width));
+}
 main();

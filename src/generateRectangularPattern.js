@@ -93,18 +93,26 @@ const alternatingRectangle = function(length,breadth){
   return row;
 }
 
-let functionName = process.argv[2];
-let length = +process.argv[3];
-let breadth = +process.argv[4];
+const generateRectangle = function(functionName,length,breadth){
 
-if(functionName=="filled"){
-  console.log(filledRectangle(length,breadth));
+  if(functionName=="filled"){
+    return filledRectangle(length,breadth);
+  }
+
+  if(functionName=="empty"){
+    return emptyRectangle(length,breadth);
+  }
+
+  if(functionName=="alternating"){
+    return alternatingRectangle(length,breadth);
+  }
 }
 
-if(functionName=="empty"){
-  console.log(emptyRectangle(length,breadth));
-}
+const main = function(){
+  let functionName = process.argv[2];
+  let length = +process.argv[3];
+  let breadth = +process.argv[4];
 
-if(functionName=="alternating"){
-  console.log(alternatingRectangle(length,breadth));
+  console.log(generateRectangle(functionName,length,breadth));
 }
+main();

@@ -35,12 +35,20 @@ const leftAlignedTriangle = function(length){
   return triangle;
 }
 
-let pattern = process.argv[2];
+const generateTriangle = function(triangleType,length){
+if(triangleType=="left"){
+  return leftAlignedTriangle(length);
+}
+if(triangleType=="right"){
+  return rightAlignedTriangle(length);
+}
+}
+
+const main = function(){
+let triangleType= process.argv[2];
 let length = process.argv[3];
-if(pattern=="left"){
-  console.log(leftAlignedTriangle(length));
+  console.log(generateTriangle(triangleType,length));
 }
-if(pattern=="right"){
-  console.log(rightAlignedTriangle(length));
-}
+
+main();
 
