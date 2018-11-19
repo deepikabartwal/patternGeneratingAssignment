@@ -81,20 +81,6 @@ const generateDiamond = function(type,width){
 
 exports.generateDiamond = generateDiamond;
 
-//const main = function(){
-//  let type = process.argv[2];
-//  let width = +process.argv[3];
-//  console.log(generateDiamond(type,width));
-//}
-//main();
-
-//const repeatCharacter = function(length,character){
-//  let line = "";
-//  for(let lengthIndex = 0; lengthIndex<length; lengthIndex++){
-//    line = line + character;
-//  }
-//  return line;
-//}
 
 const lineGenerator = function(length,leftChar,midChar,rightChar){
   let rightBorderWidth = 1;
@@ -200,14 +186,6 @@ const generateRectangle = function(functionName,length,breadth){
 
 exports.generateRectangle = generateRectangle;
 
-//const main = function(){
-//  let functionName = process.argv[2];
-//  let length = +process.argv[3];
-//  let breadth = +process.argv[4];
-//  console.log(generateRectangle(functionName,length,breadth));
-//}
-//main();
-
 const generateRow = function(length){
   row = "";
   for(let placeCount=1; placeCount<=length; placeCount++){
@@ -255,11 +233,3 @@ if(triangleType=="right"){
 }
 
 exports.generateTriangle = generateTriangle;
-//const main = function(){
-//let triangleType= process.argv[2];
-//let length = process.argv[3];
-//  console.log(generateTriangle(triangleType,length));
-//}
-//
-//main();
-//
